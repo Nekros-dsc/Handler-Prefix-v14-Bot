@@ -1,0 +1,7 @@
+{
+  "name": "handler-prefix-v14",
+  "author": "nekrxs.",
+  "dependencies": {
+    "discord.js": "^14.15.2"
+  }
+}
