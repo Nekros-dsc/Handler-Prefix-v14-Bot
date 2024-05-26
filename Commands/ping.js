@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.help = {
   name: 'ping',
   aliases: ['speed', 'latency', 'latence'],
-  description: 'Affiche la latence du bot.',
+  description: 'Displays Discord API latency.',
   use: 'ping',
 }
 exports.run = async (bot, message, args, config) => {
