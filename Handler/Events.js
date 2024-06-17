@@ -1,3 +1,4 @@
+const config = require('../config.json');
 const fs = require('fs');
 
 module.exports = (bot) => {
@@ -7,11 +8,11 @@ module.exports = (bot) => {
     const event = require(`../Events/${file}`);
 
     if (event.once) {
-      bot.once(event.name, (...args) => event.execute(...args, bot));
+      bot.once(event.name, (...args) => event.execute(...args, bot, config));
     } else {
-      bot.on(event.name, (...args) => event.execute(...args, bot));
+      bot.on(event.name, (...args) => event.execute(...args, bot, config));
     }
-        //console.log(`[EVENT] ▸ ${file}`);
+      //console.log(`[EVENT] ▸ ${file}`);
   }
 
   const eventSubFolders = fs.readdirSync('./Events/').filter((folder) => !folder.endsWith('.js'));
@@ -23,11 +24,11 @@ module.exports = (bot) => {
       const event = require(`../Events/${folder}/${file}`);
 
       if (event.once) {
-        bot.once(event.name, (...args) => event.execute(...args, bot));
+        bot.once(event.name, (...args) => event.execute(...args, bot, config));
       } else {
-        bot.on(event.name, (...args) => event.execute(...args, bot));
+        bot.on(event.name, (...args) => event.execute(...args, bot, config));
       }
-            //console.log(`[EVENT] ▸ ${file} - ${folder}`);
+      //console.log(`[EVENT] ▸ ${file} - ${folder}`);
     }
   }
 };
